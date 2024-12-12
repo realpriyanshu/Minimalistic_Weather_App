@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
 import React, { useState, useEffect } from "react";
 import {OPENWEATHER_API_KEY} from "@env";
 console.log(OPENWEATHER_API_KEY);
-import Wheather from '../components/Wheather.js'
+import Wheather from '../components/Wheather.js';
 
 const Weather = () => {
   const [loading, setLoading] = useState(false); 
@@ -42,7 +42,7 @@ const Weather = () => {
   if (loading) {
     return (
       <View style={styles.container}>
-        <ActivityIndicator color="gray" size={36} />
+        <ActivityIndicator styles={styles.buffer} color="gray" size={56} />
       </View>
     );
   } else if (weatherData == null) {
@@ -67,12 +67,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#000', // Dark background for the weather info
     padding: 20, // Padding around content
   },
+  buffer :{
+     marginTop:60
+  },
   searchContainer: {
     marginBottom: 20, // Add some space between search bar and weather info
   },
   weatherInfo: {
-    flex: 1, // Take up remaining space
-    justifyContent: 'center',
+    flex: 1
   },
 });
 
